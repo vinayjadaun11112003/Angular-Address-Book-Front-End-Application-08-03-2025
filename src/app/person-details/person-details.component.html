@@ -1,0 +1,50 @@
+<!-- person-details.component.html -->
+<div class="container">
+  <div class="header">
+    <h2 class="title">Person Details</h2>
+    <button class="add-btn" (click)="addPerson()">
+      <i class="plus-icon">+</i> Add Person
+    </button>
+  </div>
+
+  <div *ngIf="showForm">
+    <app-address-form 
+      [person]="currentPerson" 
+      (formSubmitted)="onFormSubmit($event)">
+    </app-address-form>
+  </div>
+  
+  <div class="table-container">
+    <table class="person-table">
+      <thead>
+        <tr>
+          <th>Fullname</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip Code</th>
+          <th>Phone Number</th>
+          <th class="actions-col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of persons">
+          <td>{{ person.fullName }}</td>
+          <td>{{ person.address }}</td>
+          <td>{{ person.city }}</td>
+          <td>{{ person.state }}</td>
+          <td>{{ person.zipCode }}</td>
+          <td>{{ person.contact }}</td>
+          <td class="actions">
+            <button class="icon-btn delete-btn" (click)="deletePerson(person)">
+              <i class="material-icons">delete</i>
+            </button>
+            <button class="icon-btn edit-btn" (click)="editPerson(person)">
+              <i class="material-icons">edit</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

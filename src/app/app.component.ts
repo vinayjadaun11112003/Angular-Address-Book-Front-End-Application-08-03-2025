@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+// import { RouterOutlet } from '@angular/router';
+import {PersonDetailsComponent} from "../app/person-details/person-details.component"
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  // imports: [RouterOutlet,PersonDetailsComponent],
+  imports: [PersonDetailsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'address-book-application';
+  title = 'person-details-app';
 }
+
+
